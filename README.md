@@ -100,8 +100,8 @@ The notebook includes data-quality checks and validation assertions to help conf
 
 ## Project Files
 
-- `Task_2_Retail_Demand_Basket_Analysis_Srishti_Pandey.ipynb` — analysis notebook
-- `Retail_Demand_Basket_Analysis_Srishti_Pandey.pptx` — project presentation
+- `Task_2_Retail_Demand_Basket_Analysis_Srishti_Pandey (2).ipynb` — analysis notebook
+- `Task_2_Retail_Demand_Basket_Analysis_Srishti_Pandey_ppt.pptx` — project presentation
 - `README.md` — project overview, methods, findings and instructions
 
 ## Data Acknowledgement

@@ -1,5 +1,4 @@
-# Arrowstack Data Science Internship — Task 2
-## Retail Demand & Basket Analysis
+# Retail Demand & Basket Analysis
 
 **Author:** Srishti Pandey  
 **Tools:** Python, Pandas, NumPy, Matplotlib, Google Colab  
@@ -101,11 +100,12 @@ The notebook includes data-quality checks and validation assertions to help conf
 
 ## Project Files
 
-- `Task_2_Retail_Demand_Basket_Analysis_Srishti_Pandey.ipynb` — analysis notebook
-- `Arrowstack_Task_2_Retail_Demand_Basket_Analysis_Srishti_Pandey.pptx` — project presentation
+- `Task_2_Retail_Demand_Basket_Analysis_Srishti_Pandey (2).ipynb` — analysis notebook
+- `Task_2_Retail_Demand_Basket_Analysis_Srishti_Pandey_ppt.pptx` — project presentation
 - `README.md` — project overview, methods, findings and instructions
 
-## Acknowledgement
+## Data Acknowledgement
 
-Chen, D. (2015). *Online Retail*. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33# Arrowstack-Task-2-Retail-Demand-Basket-Analysis
+Chen, D. (2015). *Online Retail*. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
+
 Retail demand analysis and market basket analysis using Python, Pandas and association rules.

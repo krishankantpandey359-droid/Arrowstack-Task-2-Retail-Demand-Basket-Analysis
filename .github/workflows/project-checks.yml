@@ -1,7 +1,7 @@
 name: Notebook end-to-end checks
 on:
   push:
-    branches: ["main", "audit/**"]
+    branches: ["main", "audit/**", "quality/**"]
   pull_request:
 jobs:
   execute:
@@ -12,21 +12,43 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install notebook dependencies
-        run: python -m pip install --upgrade pip pandas numpy matplotlib openpyxl jupyter nbconvert nbformat
-      - name: Execute complete notebook
-        run: curl -L --fail --retry 3 -o /tmp/online-retail.zip https://archive.ics.uci.edu/static/public/352/online+retail.zip && unzip -o /tmp/online-retail.zip -d . && test -f 'Online Retail.xlsx' && jupyter nbconvert --to notebook --execute "Task_2_Retail_Demand_Basket_Analysis_Srishti_Pandey (2).ipynb" --output executed_retail.ipynb --ExecutePreprocessor.timeout=1200
-      - name: Verify every non-empty code cell and outputs
+      - name: Install project dependencies
+        run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
+      - name: Download the official dataset and execute the project notebook
+        run: |
+          curl -L --fail --retry 3 -o /tmp/online-retail.zip https://archive.ics.uci.edu/static/public/352/online+retail.zip
+          unzip -o /tmp/online-retail.zip -d .
+          test -f 'Online Retail.xlsx'
+          jupyter nbconvert --to notebook --execute "retail_demand_basket_analysis.ipynb" --output executed_retail.ipynb --ExecutePreprocessor.timeout=1200
+      - name: Verify notebook execution and outputs
         run: |
           python - <<'PY'
           import nbformat
           from pathlib import Path
-          executed = next(Path('.').glob('executed_*.ipynb'))
+
+          executed = Path("executed_retail.ipynb")
+          assert executed.is_file(), "Executed notebook was not created."
           nb = nbformat.read(executed, as_version=4)
-          cells = [c for c in nb.cells if c.cell_type == 'code' and c.source.strip()]
-          assert cells and all(c.execution_count is not None for c in cells)
-          errors = [(i,o.ename,o.evalue) for i,c in enumerate(nb.cells) if c.cell_type == 'code' for o in c.get('outputs',[]) if o.output_type == 'error']
+          cells = [
+              cell for cell in nb.cells
+              if cell.cell_type == "code" and cell.source.strip()
+          ]
+          assert cells, "Notebook contains no non-empty code cells."
+          assert all(cell.execution_count is not None for cell in cells), (
+              "At least one non-empty code cell was not executed."
+          )
+          errors = [
+              (index, output.ename, output.evalue)
+              for index, cell in enumerate(nb.cells)
+              if cell.cell_type == "code"
+              for output in cell.get("outputs", [])
+              if output.output_type == "error"
+          ]
           assert not errors, errors
-          assert any(o.output_type in {'display_data','execute_result'} for c in cells for o in c.get('outputs',[])), 'No rendered outputs'
-          print(f'Executed {len(cells)} non-empty code cells without errors.')
+          assert any(
+              output.output_type in {"display_data", "execute_result"}
+              for cell in cells
+              for output in cell.get("outputs", [])
+          ), "Notebook produced no rendered outputs."
+          print(f"Executed {len(cells)} non-empty code cells without errors.")
           PY

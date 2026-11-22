@@ -86,6 +86,15 @@ Support measures how often a pair appears across all baskets, confidence measure
 - Basket analysis covers UK invoices and only the 25 most frequently invoiced products, so less common product combinations may be missed.
 - Products appearing in the same invoice do not necessarily cause one another to be purchased.
 
+## Run locally
+
+Use Python 3.11 or later. Download the official `Online Retail.xlsx` file from the UCI dataset page into the repository root, then install the dependencies and execute the notebook:
+
+```bash
+python -m pip install -r requirements.txt
+jupyter nbconvert --to notebook --execute "Task_2_Retail_Demand_Basket_Analysis_Srishti_Pandey (2).ipynb" --output executed_retail.ipynb --ExecutePreprocessor.timeout=1200
+```
+
 ## How to Run
 
 1. Download `Online Retail.xlsx` from the official UCI dataset page.

@@ -32,7 +32,7 @@ Download the official `Online Retail.xlsx` file from the UCI dataset page before
 
 The notebook checks missing values, exact duplicate rows, cancellation invoices, invalid dates and non-positive quantities or prices. It creates a cleaned copy so that the original data remains available for checking.
 
-After cleaning, **524,878 rows** remained for the main analysis. Rows with a missing `CustomerID` were kept when the invoice and product details were usable, because invoice-level analysis does not always require a customer ID. Large values were reviewed as potential outliers rather than automatically removed, since some may represent genuine large orders.
+After cleaning, **524,878 rows** remained for the main analysis. The notebook now prints a source-exception summary before filtering, including exact duplicates, cancellation invoices, negative and zero quantities, negative and zero unit prices, missing customer IDs, and non-finite numeric values. This makes the cleaning exclusions auditable instead of hiding them inside a final row count. Rows with a missing `CustomerID` were kept when the invoice and product details were usable, because invoice-level analysis does not always require a customer ID. Large values were reviewed as potential outliers rather than automatically removed, since some may represent genuine large orders.
 
 The sales summaries use positive transaction lines. They are not presented as final net revenue or profit because returns and operating costs are not fully accounted for.
 

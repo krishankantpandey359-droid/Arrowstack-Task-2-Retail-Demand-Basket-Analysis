@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local source dataset and generated notebook output
+Online\\ Retail.xlsx
+online+retail.zip
+executed_*.ipynb
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

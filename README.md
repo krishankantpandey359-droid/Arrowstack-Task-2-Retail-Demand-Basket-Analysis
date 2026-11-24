@@ -96,3 +96,7 @@ Chen, D. (2015). *Online Retail*. UCI Machine Learning Repository. [https://doi.
 - Basket analysis covers UK invoices and only the 25 most frequently invoiced products.
 - Products appearing in the same invoice do not necessarily cause one another to be purchased.
 - Validate findings on newer data and through controlled business tests before operational use.
+
+## Latest GitHub Actions validation
+
+Latest verified successful main-branch workflow run checked on 24 November 2026: [GitHub Actions run #45308536726](https://github.com/krishankantpandey359-droid/Arrowstack-Task-2-Retail-Demand-Basket-Analysis/actions/runs/45308536726). This run verifies the checks configured in this repository's workflow; it does not replace manual testing of features outside CI.

@@ -99,4 +99,4 @@ Chen, D. (2015). *Online Retail*. UCI Machine Learning Repository. [https://doi.
 
 ## Latest GitHub Actions validation
 
-Latest verified successful main-branch workflow run checked on 24 November 2026: [GitHub Actions run #45798298969](https://github.com/krishankantpandey359-droid/Arrowstack-Task-2-Retail-Demand-Basket-Analysis/actions/runs/45798298969). This run verifies the checks configured in this repository's workflow; it does not replace manual testing of features outside CI.
+Latest successful main-branch workflow run verified on 26 November 2026: [GitHub Actions run #45798876227](https://github.com/krishankantpandey359-droid/Arrowstack-Task-2-Retail-Demand-Basket-Analysis/actions/runs/45798876227). This confirms the configured automated checks, not every manual or deployment feature.
